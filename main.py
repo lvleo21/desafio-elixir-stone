@@ -1,4 +1,4 @@
-from data_base import load_emails, load_items
+from data_base import load_emails, load_items, generate_emails, generate_items
 
 class ShoppingList:
     def __init__(self):
@@ -82,78 +82,34 @@ def main(items, emails):
     
     #! Calcular a soma dos valores, ou seja, multiplicar o preço de cada item por sua quantidade e somar todos os itens
     purchase_list_price = calculate_shopping_list_value(items)
+
+    print(f"VALOR DA COMPRA : {purchase_list_price/100}")
     
     #! Dividir o valor de forma igual entre a quantidade de e-mails
     dict2 = split_shopping_list_value(purchase_list_price, len(emails))
+
+    print(f'RESTO : {dict2["rest"]}')
     
     #! Retornar um mapa/dicionário onde a chave será o e-mail e o valor será quanto ele deve pagar nessa conta
     dict3 = generate_dictionary(dict2, emails)
 
     for x, y in dict3.items():
-        print(f"{x} - {y}")
+        print(f"{x} - R$ {y/100}")
 
 if __name__ == "__main__":
 
-    items = load_items('files/items.txt')
-    emails = load_emails('files/emails.txt')
-   
+    #! A partir de arquivo txt
+    #items = load_items('files/items.txt')
+    #emails = load_emails('files/emails.txt')
+    
+    #! Gerando aleatoriamente
+    emails = generate_emails(200) 
+    items = generate_items(175)
+    
+    #print(emails)
+    #print(items)
+
     main(items, emails)
 
-    
-
-    # shopping_list.add_item('Pão', 10, 15) #! Nome, Quantidade, valor
-    # shopping_list.add_item('Café', 8, 425)
-    # shopping_list.add_item('Biscoito', 3, 325)
-    # shopping_list.add_item('Leite', 4, 450)
-    # shopping_list.add_item('Feijão', 2, 800)
-    # shopping_list.add_item('Arroz', 2, 400)
-    # shopping_list.add_item('Carne', 1, 3800)
-    # shopping_list.add_item('Farinha', 1, 200)
-
-    # shopping_list.print_list()
-
-    # print()
-
-    # price = shopping_list.purchase_price
-   
-    # print(f'PRICE: R$ {price/100}')
 
     
-    # data = split_list_value(price, email_list)
-
-    # print(data)
-    # teste = email_list[-data['rest']:]
-    # print(teste)
-    
-    # new_list = []
-    # temp_rest = data['rest']
-    
-    # email_list.reverse()
-    
-    # if data['rest'] is not 0:
-       
-    #     for email in email_list:
-    #         if temp_rest > 0:
-    #             new_dict = {
-    #                 f"{email}" : (data['division_value'] + 1) / 100
-    #             }
-    #             temp_rest-=1
-    #         else:
-
-    #             new_dict = {
-    #                 f"{email}" : data['division_value'] / 100
-    #             }
-    #         new_list.insert(0, new_dict)
-    # else:
-    #     print('Não Tem resto !')
-    #     for email in email_list:
-    #         print(f'{email} - {data["division_value"]}')
-
-    
-    
-
-    # for x, i in enumerate(new_list):
-        
-    #     print(f"{x+1} -> {i}")
-
-        
