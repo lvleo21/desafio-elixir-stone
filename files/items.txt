@@ -1,0 +1,9 @@
+Pão/10/15
+Café/8/325
+Biscoito/3/450
+Leite/4/800
+Feijão/2/400
+Carne/2/3800
+Farinha/2/200
+Ovo/12/500
+Biscoito/13/175
