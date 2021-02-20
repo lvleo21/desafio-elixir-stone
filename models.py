@@ -12,7 +12,8 @@ class Item:
     
     def get_calculated_item(self):
         """
-        Este método é utilizado para retornar a multiplicação entre o preço e a quantidade.
+        Este método é utilizado para retornar o valor total, ou seja, a 
+        multiplicação entre o preço e a quantidade deste item.
         """
         return self.price * self.quantity
 
@@ -22,16 +23,16 @@ class Item:
 class Generate(object):
 
     """ 
-    Generate é uma classe com doius métodos estáticos, as quais
-    são utilizadas para gerar de forma aleátoria listas de items ou 
-    emails.
+    Generate é uma classe com dois métodos estáticos, os quais
+    são utilizadas para gerar de forma aleátoria listas de items 
+    ou emails.
     
     """
     
     @staticmethod
     def items(quantity_items):
         """
-        Este método é utilizado para gerar uma lista de items de forma
+        Este método, é utilizado para gerar uma lista de items de forma
         aleatória (nome, quantidade e valor), e recebe como parâmetro a 
         quantidade de items que se deseja ter na lista.
 
@@ -62,7 +63,7 @@ class Generate(object):
     @staticmethod
     def emails(quantity_emails):
         """
-        Este método é utilizado para gerar uma lista de emails de forma
+        Este método, é utilizado para gerar uma lista de emails de forma
         aleatória e recebe como parâmetro a quantidade de emails que se deseja 
         ter na lista.
 

@@ -9,10 +9,9 @@ def calculate_shopping_list_value(items):
     item e a sua respectiva quantidade.
 
 
-    Retorno -> Um inteiro que representa valor total da lista de 
-    compras. 
- 
-    
+    Retorno -> Um inteiro que representa o valor total (em centavos)
+    da lista de compras. 
+
     """
     
     purchase_list_price = 0
@@ -25,7 +24,7 @@ def calculate_shopping_list_value(items):
 def split_shopping_list_value(purchase_list_price, quantity_emails):
     """
     Esta função é utilizada para dividir o valor da compra de
-    acordo com a quantidade e-mails e informar o 'resto' desta divisão.
+    acordo com a quantidade e-mails e informar o 'resto' desta divisão (caso exista).
     Este resto, será utilizado para que não falte nenhum centavo.
 
     Retorno -> Dicionário contendo as chaves rest e division_value com 
@@ -98,8 +97,8 @@ def show_result(result):
 
 if __name__ == "__main__":
 
-    items = Generate.items(0) #! Inserir a quantidade de items
-    emails = Generate.emails(0) #! inserir a quantidade de emails
+    items = Generate.items(10) #! Inserir a quantidade de items
+    emails = Generate.emails(10) #! inserir a quantidade de emails
 
     result = calculate(items, emails)
     show_result(result)
