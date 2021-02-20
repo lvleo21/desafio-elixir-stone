@@ -1,6 +1,7 @@
 from random import choice, randrange
 import string
 
+
 def load_emails(file_name):
     data = []
 
@@ -46,26 +47,10 @@ def generate_emails(quantity_emails):
     emails = []
 
     for _ in range(quantity_emails):
-        email = ''.join(choice(letters) for _ in range(4)) + '@stone.com.br'
+        number_of_characters = randrange(1,6) #! Quantidade de caracteres do email
+        email = ''.join(choice(letters) for _ in range(number_of_characters)) + '@stone.com.br'
         emails.append(email)
 
     return emails
 
-def generate_items(quantity_items):
-    items = []
-    letters = string.ascii_letters
 
-    for _ in range(quantity_items):
-        name = ''.join(choice(letters) for _ in range(randrange(1,6)))  #! Nome do produto
-        value = randrange(1, 10000)
-        quantity = randrange(1,30)
-
-        item = {
-            'name': name,
-            'value': value,
-            'quantity': quantity,
-        }
-
-        items.append(item)
-
-    return items
