@@ -27,9 +27,8 @@ if __name__ == "__main__":
     emails = Generate.emails(179) #! inserir a quantidade de emails
 
     result = calculate(items, emails)
+    show_result(result) # Exibir/imprimir result
 
-    for key, value in result.items():
-        print(f'{key} - R$ {value/100}')
 ```
 
 As funções desenvolvidas para esta solução, estão devidamentes explicadas em seus respectivos blocos. Porém, queria abri espaço para o ponto chave dessa solução, a função generate_dictionary. A mesma, é utilizada para gerar um dicionário (email/valor a ser pago) como é solicitado na descrição do desafio. A lógica que utilizei foi verificar se a divisão entre todos os emails possui resto. A segunda parte, é verificar se o contador do meu loop for (variável x) é maior ou igual a quantidade de emails menos o resto. 
@@ -37,7 +36,10 @@ As funções desenvolvidas para esta solução, estão devidamentes explicadas e
 "Mas Leonardo, porque essa verificação ?"
 
 Bom, podemos inserir quantidade items e emails de diversas formas e isto vai permitir uma gama enorme de resultados que muitas vezes não serão exatos, por exemplo uma compra onde o valor total seja de R$ 1,00 e a quantidade de emails
-1000.
+1000, o resultado da divisão inteira seria 0 e o resto dessa divisão seria de 100. Com isso, 900 pessoas pagariam 0 centavos e as outras 100, 1 centavo.
+Então, para isso eu resolvi dividir este bloco de emails que receberam os centavos e para isso eu utilizo como referência o índice da lista e o resto, que basicamente vai me dizer que X quantidade de pessoas receberão um centavo a mais. 
+
+
 ```python
 def generate_dictionary(value_by_email, emails):
     result = {}
@@ -83,7 +85,7 @@ from models import Generate
 - Impote o método calculate
 
 ```
-from challenge import calculate
+from challenge import calculate, show_result
 ```
 
 - Agora, baste gerar a quantidade de emails e items que deseja
@@ -97,5 +99,6 @@ emails = Generate.emails(10) # informando a quantidade de emails
 
 ```python
 result = calculate(items, emails)
-print(result) # imprimir result
+show_result(result) # imprimir result
+
 ```

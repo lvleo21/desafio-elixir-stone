@@ -79,31 +79,29 @@ def calculate(items, emails):
         #! Calcular a soma dos valores, ou seja, multiplicar o preço de cada item por sua quantidade e somar todos os itens
         purchase_list_price = calculate_shopping_list_value(items)
 
-        print(f'R$ {purchase_list_price/100}')
-
         #! Dividir o valor de forma igual entre a quantidade de e-mails
         value_by_email = split_shopping_list_value(purchase_list_price, len(emails))
-
-        print(value_by_email)
         
         #! Retornar um mapa/dicionário onde a chave será o e-mail e o valor será quanto ele deve pagar nessa conta
         result = generate_dictionary(value_by_email, emails)
-
-    
+ 
     return result
 
 
-    
-
-if __name__ == "__main__":
-
-    items = Generate.items(200) #! Inserir a quantidade de items
-    emails = Generate.emails(43) #! inserir a quantidade de emails
-
-    result = calculate(items, emails)
-
+def show_result(result):
     if result is not None:
         for key, value in result.items():
             print(f'{key} - R$ {value}')
     else:
-        print("A lista de emails ou de items está vazia, tente novamente!")
+        print("O valor de RESULT é nulo, insira uma quantidade de emails e items maior que 0.")
+    
+
+if __name__ == "__main__":
+
+    items = Generate.items(0) #! Inserir a quantidade de items
+    emails = Generate.emails(0) #! inserir a quantidade de emails
+
+    result = calculate(items, emails)
+    show_result(result)
+
+    
