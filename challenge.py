@@ -11,7 +11,7 @@ from models import Generate, Item
 
 """
 
-def calculate_shopping_list_value(items):
+def calculate_shopping_list_value(items: list) -> int:
     """
     Esta função é utilizada para verificar qual é o valor total
     da lista de items, para isso utilizo uma variável acumuladora
@@ -31,7 +31,7 @@ def calculate_shopping_list_value(items):
     return purchase_list_price
 
 
-def split_shopping_list_value(purchase_list_price: float, quantity_emails: int):
+def split_shopping_list_value(purchase_list_price: float, quantity_emails: int) -> dict:
     """
     Esta função é utilizada para dividir o valor da compra de
     acordo com a quantidade e-mails e informar o 'resto' desta divisão (caso exista).
@@ -54,7 +54,7 @@ def split_shopping_list_value(purchase_list_price: float, quantity_emails: int):
         return data
 
 
-def generate_dictionary(value_by_email, emails):
+def generate_dictionary(value_by_email: dict, emails: list) -> dict:
     """
     Esta função é utilizada para criar um dicionário onde a key será
     o email e o value será o valor que o mesmo deverá pagar (convertido para reais).
@@ -82,12 +82,11 @@ def generate_dictionary(value_by_email, emails):
     return result
 
 
-def calculate(items, emails):
+def calculate(items: list, emails: list) -> dict:
     result = None
 
-    #! Eliminando emails repetidos, logo se há emails repetidos poderemos interpretar como se a pessoa tivesse feito duas ou mais compras.
-    #! Ou não, talvez fosse apenas um erro.
-    emails = list(dict.fromkeys(emails)) #Removendo emails repetidos
+
+    emails = list(dict.fromkeys(emails)) #! Removendo emails repetidos
 
     if len(items) > 0 and len(emails) > 0:
         # ! Calcular a soma dos valores, ou seja, multiplicar o preço de cada item por sua quantidade e somar todos os itens
@@ -104,7 +103,7 @@ def calculate(items, emails):
     return result
 
 
-def show_result(result):
+def show_result(result: dict) -> None:
     if result is not None:
         for key, value in result.items():
             print(f'{key} - R$ {value}')

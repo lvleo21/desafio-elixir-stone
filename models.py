@@ -30,7 +30,7 @@ class Generate(object):
     """
     
     @staticmethod
-    def items(quantity_items):
+    def items(quantity_items: int) -> list:
         """
         Este método, é utilizado para gerar uma lista de items de forma
         aleatória (nome, quantidade e valor), e recebe como parâmetro a 
@@ -61,7 +61,7 @@ class Generate(object):
         return items
 
     @staticmethod
-    def emails(quantity_emails):
+    def emails(quantity_emails: int) -> list:
         """
         Este método, é utilizado para gerar uma lista de emails de forma
         aleatória e recebe como parâmetro a quantidade de emails que se deseja 
